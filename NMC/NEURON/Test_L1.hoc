@@ -1,0 +1,37 @@
+
+load_file("../parser/L1_HAC_cNAC187_1/loadcell.hoc")
+load_file("utils/cellCheck.hoc")
+
+// For testing...
+                      
+//forall {if (ismembrane("Ih")) { uninsert Ih } }
+//forall {if (ismembrane("Ca_HVA")) { uninsert Ca_HVA } }
+//forall {if (ismembrane("Ca_LVAst")) { uninsert Ca_LVAst } }
+//forall {if (ismembrane("Ca")) { uninsert Ca } }
+//forall {if (ismembrane("SKv3_1")) { uninsert SKv3_1 } }
+//forall {if (ismembrane("SK_E2")) { uninsert SK_E2 } }
+//forall {if (ismembrane("Nap_Et2")) { uninsert Nap_Et2 } }
+//forall {if (ismembrane("Im")) { uninsert Im } }
+//forall {if (ismembrane("K_Tst")) { uninsert K_Tst } }
+//forall {if (ismembrane("NaTa_t")) { uninsert NaTa_t } }
+//forall {if (ismembrane("K_Pst")) { uninsert K_Pst } }
+//forall {if (ismembrane("NaTs2_t")) { uninsert NaTs2_t } }
+
+tstop=3000
+
+create_recording()
+
+create_stimulus("stepcurrent3")
+
+psection()
+
+simulate()
+
+save_recording()
+
+access cNAC187_L1_HAC_f8c9772d9d[0].dend[0]
+
+psection()
+
+//quit()
+
